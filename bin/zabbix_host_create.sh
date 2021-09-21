@@ -14,9 +14,11 @@ do
     _HOSTGROUP=`echo $line | cut -d"," -f 1`
     _HOSTNAME=`echo $line | cut -d"," -f 2`
     _TYPE=`echo $line | cut -d"," -f 3`
-    _IPADD=`echo $line | cut -d"," -f 4`
-    _PORT=`echo $line | cut -d"," -f 5`
+    _FRONT_IP=`echo $line | cut -d"," -f 4`
+    _BACK_IP=`echo $line | cut -d"," -f 5`
+    _PORT=`echo $line | cut -d"," -f 6`
     
+#todo: ホストの追加を別ファイルに出す
     # ホスト追加
     ## 追加対象ホストが存在しないか確認
     ### ホストID取得
@@ -56,7 +58,7 @@ do
                     {
                         "type": "'${_TYPE}'",
                         "useip": 1,
-                        "ip": "'${_IPADD}'",
+                        "ip": "'${_FRONT_IP}'",
                         "dns": "",
                         "port": "'${_PORT}'",
                         "main": 1
@@ -87,11 +89,16 @@ do
     ## ホストID取得
     bash ${script_path}/bin/_get_host_ids.sh
     
+    ## マクロの追加
+    bash ${script_path}/bin/_create_usermacro.sh ${_HOSTNAME}
+
     ## アプリケーションの追加
     bash ${script_path}/bin/_create_applications.sh ${_HOSTNAME}
     
     ## ディスカバリの追加
-    bash ${script_path}/bin/_create_discovery_rules.sh ${_HOSTNAME}
+    # bash ${script_path}/bin/_create_discovery_rules.sh ${_HOSTNAME}
+
+    ## アイテムの追加
 
 
 done < ${TMPLISTFILE_01}
