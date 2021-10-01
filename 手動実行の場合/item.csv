@@ -1,0 +1,4 @@
+hostname," item_name"," key_"," delay"," history"," trends"," item_type"," applications"," status"," value_type"," units"," formula"
+hogehoge,HealthCheck|AGENT Ping,agent.ping,60,396,396,Zabbixエージェント,HealthCheck,有効,数値(整数),,
+hogehoge,Resource|CPU|Util_ALL,cpuutil,60,396,396,計算,Resource,有効,数値(浮動小数),%,"last(""system.cpu.util[,user,avg1]"")+last(""system.cpu.util[,system,avg1]"")"
+,,,,,,,,,,,

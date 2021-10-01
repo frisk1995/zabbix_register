@@ -1,0 +1,103 @@
+curl -s -d '{
+    "jsonrpc": "2.0",
+    "method": "itemprototype.create",
+    "params": {
+        "name": "Resource|Interface|ifInErrors_{#IFNAME}",
+        "key_": "net.if.in[{#IFNAME},errors]",
+        "hostid": "'${HOST_ID}'",
+        "ruleid": "'${DISCOVERY_ITEMID}'",
+        "type": 0,
+        "value_type": 3,
+        "interfaceid": "'${INTR_ID}'",
+        "delay": "300s",
+        "history": "396d",
+        "trends": "396d",
+        "applications": {
+            "applicationid": "'${APP_ID}'"
+        },
+        "preprocessing": [
+            {
+                "type": "9",
+                "params": ""
+            }
+        ]
+    },"auth": "'${AUTH_TOKEN}'","id": 1
+}' -H "Content-Type: application/json-rpc" http://${zabbix_host}/zabbix/api_jsonrpc.php | jq -r .
+
+curl -s -d '{
+    "jsonrpc": "2.0",
+    "method": "itemprototype.create",
+    "params": {
+        "name": "Resource|Interface|ifInOctets_{#IFNAME}",
+        "key_": "net.if.in[{#IFNAME},bytes]",
+        "hostid": "'${HOST_ID}'",
+        "ruleid": "'${DISCOVERY_ITEMID}'",
+        "type": 0,
+        "value_type": 3,
+        "interfaceid": "'${INTR_ID}'",
+        "delay": "300s",
+        "history": "396d",
+        "trends": "396d",
+        "applications": {
+            "applicationid": "'${APP_ID}'"
+        },
+        "preprocessing": [
+            {
+                "type": "9",
+                "params": ""
+            }
+        ]
+    },"auth": "'${AUTH_TOKEN}'","id": 1
+}' -H "Content-Type: application/json-rpc" http://${zabbix_host}/zabbix/api_jsonrpc.php | jq -r .
+
+curl -s -d '{
+    "jsonrpc": "2.0",
+    "method": "itemprototype.create",
+    "params": {
+        "name": "Resource|Interface|ifOutErrors_{#IFNAME}",
+        "key_": "net.if.out[{#IFNAME},errors]",
+        "hostid": "'${HOST_ID}'",
+        "ruleid": "'${DISCOVERY_ITEMID}'",
+        "type": 0,
+        "value_type": 3,
+        "interfaceid": "'${INTR_ID}'",
+        "delay": "300s",
+        "history": "396d",
+        "trends": "396d",
+        "applications": {
+            "applicationid": "'${APP_ID}'"
+        },
+        "preprocessing": [
+            {
+                "type": "9",
+                "params": ""
+            }
+        ]
+    },"auth": "'${AUTH_TOKEN}'","id": 1
+}' -H "Content-Type: application/json-rpc" http://${zabbix_host}/zabbix/api_jsonrpc.php | jq -r .
+
+curl -s -d '{
+    "jsonrpc": "2.0",
+    "method": "itemprototype.create",
+    "params": {
+        "name": "Resource|Interface|ifOutOctets_{#IFNAME}",
+        "key_": "net.if.out[{#IFNAME},bytes]",
+        "hostid": "'${HOST_ID}'",
+        "ruleid": "'${DISCOVERY_ITEMID}'",
+        "type": 0,
+        "value_type": 3,
+        "interfaceid": "'${INTR_ID}'",
+        "delay": "300s",
+        "history": "396d",
+        "trends": "396d",
+        "applications": {
+            "applicationid": "'${APP_ID}'"
+        },
+        "preprocessing": [
+            {
+                "type": "9",
+                "params": ""
+            }
+        ]
+    },"auth": "'${AUTH_TOKEN}'","id": 1
+}' -H "Content-Type: application/json-rpc" http://${zabbix_host}/zabbix/api_jsonrpc.php | jq -r .

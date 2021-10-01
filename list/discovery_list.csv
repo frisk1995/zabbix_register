@@ -1,2 +1,2 @@
 # name,type,key,deley,keep,
-
+Resource|Interface|ifInErrors_{#IFNAME};net.if.in[{#IFNAME},bytes];
